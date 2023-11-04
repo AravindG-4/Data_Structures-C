@@ -63,7 +63,7 @@ void del_back()
         printf("Array is empty\n");
     else
         {
-            arr[top] == 0;
+            arr[top] = 0;
             top--;
         }
 
