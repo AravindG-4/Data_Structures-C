@@ -26,7 +26,7 @@ void insert_front(int temp)
         printf("Array is full\n");
     else
     {
-        for(int i=top; i>=0; i++)
+        for(int i=top; i>=0; i--)
             arr[i+1] = arr[i];
         top++;
         arr[0] = temp;
