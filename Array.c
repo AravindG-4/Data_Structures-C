@@ -52,10 +52,8 @@ void del_front()
     else
     {
         for(int i=0; i<=top; i++)
-        {
             arr[i] = arr[i+1];
-            top--;
-        }
+        top--;
     }
 }
 
