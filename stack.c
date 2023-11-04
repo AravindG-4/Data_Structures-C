@@ -39,8 +39,10 @@ void pop(){
 }
 
 void peek()
-{
-    printf("%d\n",stack[top]);
+{   if(is_empty)
+        printf("Array is empty\n");
+    else
+        printf("%d\n",stack[top]);
 }
 
 void display ()
