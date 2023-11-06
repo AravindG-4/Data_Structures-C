@@ -1,40 +1,40 @@
 #include<stdio.h>
 #include<conio.h>
+#include <ctype.h>
+#include <string.h>
+#define size 3
+int arr[size];
 int front=-1;int rear=-1;
-int size=3;
-int arr[3];
-void deque(){
-    if (front && rear==-1){
+void dequeue(){
+    if (front==-1 && rear==-1){
             printf("Queue is empty\n");
 
     }
     else if(front==rear){
-        front=-1;rear=-1;
         arr[front]=0;
+        front=-1;rear=-1;
     }
     else{
         printf("%d",arr[front]);
-
+        arr[front] = 0;
         front++;
-
     }
 }
-void enque(int temp){
+void enqueue(int temp){
 if(rear==size-1){
     printf("Queue is  full\n");
 }
-else if(front&& rear==-1){
+else if(front==-1 && rear==-1){
     front++;rear++;
     arr[front]=temp;
 }
 else{
     rear++;
-    rear=rear;
     arr[rear]=temp;
 }
 }
 void display(){
-    if(front && rear ==-1){
+    if(front==-1 && rear ==-1){
         printf("Queue is empty\n");
     }
     else{
@@ -46,7 +46,7 @@ void display(){
 
 int main()
 {
-   int option,in=0;
+   int option,elem=0;
 
    while(1)
     {
@@ -61,11 +61,11 @@ int main()
         {
             case 1:
                 printf("Enter the no. : ");
-                scanf("%d",&in);
-                enque(in);
+                scanf("%d",&elem);
+                enqueue(elem);
                 break;
             case 2:
-                deque();
+                dequeue();
                 break;
 
             case 3:
@@ -79,5 +79,4 @@ int main()
     }
 
 }
-
 
