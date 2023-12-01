@@ -5,3 +5,5 @@ stack.exe
 stack.o
 CircularQueue.exe
 CircularQueue.o
+PriorityQueue.exe
+PriorityQueue.o
