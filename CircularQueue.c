@@ -4,15 +4,14 @@
 #include<string.h>
 #define size 3
 int front=-1;int rear=-1;
-int print=0;
 
 int arr[size];
 void dequeue(){
-    if (front && rear==-1){
+    if (front==-1 && rear==-1){
             printf("Queue is empty\n");
     }
     else if(front==rear){
-            arr[front]=0;
+        printf("%d",arr[front]);
         front=-1;rear=-1;
     }
     else{
@@ -26,7 +25,7 @@ void enqueue(int temp){
     if((rear+1)%size == front){
         printf("Queue is  full\n");
     }
-    else if(front && rear==-1){
+    else if(front==-1 && rear==-1){
         front++;rear++;
         arr[front]=temp;
     }
