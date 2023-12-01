@@ -3,3 +3,5 @@ Array.exe
 Array.o
 stack.exe
 stack.o
+CircularQueue.exe
+CircularQueue.o
