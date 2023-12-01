@@ -26,7 +26,7 @@ void insert_front(int temp)
         printf("Array is full\n");
     else
     {
-        for(int i=top; i>=0; i++)
+        for(int i=top; i>=0; i--)
             arr[i+1] = arr[i];
         top++;
         arr[0] = temp;
@@ -52,10 +52,8 @@ void del_front()
     else
     {
         for(int i=0; i<=top; i++)
-        {
             arr[i] = arr[i+1];
-            top--;
-        }
+        top--;
     }
 }
 
@@ -65,7 +63,7 @@ void del_back()
         printf("Array is empty\n");
     else
         {
-            arr[top] == 0;
+            arr[top] = 0;
             top--;
         }
 

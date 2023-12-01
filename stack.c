@@ -18,11 +18,11 @@ int is_empty()
         return 0;
 }
 
-void push(int x){
+void push(int temp){
     if(is_full())
         printf("Stack is full\n");
     else
-        stack[++top]=x;
+        stack[++top]=temp;
 }
 
 void pop(){
@@ -39,8 +39,10 @@ void pop(){
 }
 
 void peek()
-{
-    printf("%d\n",stack[top]);
+{   if(is_empty)
+        printf("Array is empty\n");
+    else
+        printf("%d\n",stack[top]);
 }
 
 void display ()
