@@ -36,7 +36,7 @@ void enqueue(int temp){
     }
 }
 void display(){
-    if(front && rear ==-1){
+    if(front==-1 && rear ==-1){
         printf("Queue is empty\n");
     }
     else
@@ -51,8 +51,8 @@ void display(){
             }
             else
                 printf("%d ",arr[i]);
-                i++;
-                i=i%size;
+            i++;
+            i=i%size;
         }
     }
 }
@@ -64,7 +64,7 @@ void main()
     {
         printf("\nQueue Menu\n");
         printf("1.Enqueue\n");
-        printf("2.Dequeueue\n");
+        printf("2.Dequeue\n");
         printf("3.Display\n");
         printf("4.Exit\n");
         printf("Enter the option : ");
