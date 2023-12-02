@@ -29,7 +29,7 @@ int isempty()
 void enqueue(struct data temp) {
     if (isfull()) {
         printf("Queue is full\n");
-    } else if (front == -1 && rear == -1) {
+    } else if (isempty()) {
         front++;
         rear++;
         pqueue[front].p = temp.p;
@@ -61,7 +61,7 @@ void dequeue() {
 }
 
 void display() {
-    if (front == -1 && rear == -1) {
+    if (isempty()) {
         printf("Queue is empty\n");
     } else {
         for (int i = front; i <= rear; i++) {
