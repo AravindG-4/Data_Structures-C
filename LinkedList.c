@@ -1,4 +1,3 @@
-//delete front
 #include<stdio.h>
 #include<stdlib.h>
 struct node{
@@ -12,59 +11,59 @@ int n=0;
 
 void insert_front()
 {
-	if(head=='\0')
+	if(head == '\0')
 	{
 		head = (struct node *)malloc(sizeof(struct node));
-		printf("Enter Data ");
-		scanf("%d",&head->data);
-		head->link='\0';
+		printf("Enter Data : ");
+		scanf("%d", &head->data);
+		head->link = '\0';
 		n++;
 	}
 	else
 	{
-		temp=(struct node *)malloc(sizeof(struct node));
-		printf("Enter Data ");
-		scanf("%d",&temp->data);
-		temp->link=head;
-		head=temp;
+		temp = (struct node *)malloc(sizeof(struct node));
+		printf("Enter Data : ");
+		scanf("%d", &temp->data);
+		temp->link = head;
+		head = temp;
 		n++;
 	}
 }
 
 void insert_back()
 {
-	if(head =='\0')
+	if(head == '\0')
 	{
 		head = (struct node *)malloc(sizeof(struct node));
-		printf("Enter Data ");
-		scanf("%d",&head->data);
+		printf("Enter Data : ");
+		scanf("%d", &head->data);
 		head->link ='\0';
 		n++;
 	}
 	else
 	{
-		temp =(struct node *)malloc(sizeof(struct node));
-		printf("Enter Data ");
-		scanf("%d",&temp->data);
+		temp = (struct node *)malloc(sizeof(struct node));
+		printf("Enter Data : ");
+		scanf("%d", &temp -> data);
 		temp->link = '\0';
-		curr=head;
+		curr = head;
 		while(curr->link != '\0')
-			curr=curr->link;
-		curr->link=temp;
+			curr = curr->link;
+		curr->link = temp;
 		n++;
 	}
 }
 
 void insert_pos(int pos)
 {
-    temp =(struct node *)malloc(sizeof(struct node));
-	printf("Enter Data ");
-	scanf("%d",&temp->data);
+    temp = (struct node *)malloc(sizeof(struct node));
+	printf("Enter Data : ");
+	scanf("%d", & temp->data);
 	temp->link ='\0';
-	curr=head;
-	for(int i=1;i<(pos-1);i++)
+	curr = head;
+	for(int i = 1; i < (pos-1); i++)
 	{
-	 curr=curr->link;   
+		curr = curr->link;   
 	}
 	temp->link = curr->link;
 	curr->link = temp;
@@ -73,35 +72,44 @@ void insert_pos(int pos)
 
 void del_front()
 {
-	head=head->link;
-	n--;
+	if (head == '\0')
+		printf("No nodes to delete\n");
+	else
+	{
+		head = head->link;
+		n--;
+	}
 }
 
 void del_back()
 {	
 	if(head->link == '\0')
-	{	head='\0';n--;}
+	{	
+		head = '\0';
+		n--;
+	}
 	else
 	{
 		curr=head;
 		while(curr->link->link != '\0')
-			curr=curr->link;
-		curr->link='\0';
+			curr = curr->link;
+		curr->link = '\0';
 		n--;
 	}
 }
 
 void del_value()
-{   int val=0;
-    printf("\nEnter the value ");
-    scanf("%d",&val);
-    if(head->data == val)
+{   
+	int val=0;
+    printf("Enter the value : ");
+    scanf("%d", &val);
+    if (head->data == val)
         del_front();
-    else{
+    else {
         curr = head;
-        while((curr->link->data != val) && (curr->link->link != '\0'))
+        while ((curr->link->data != val) && (curr->link->link != '\0'))
             curr=curr->link;
-        if(curr->link->data != val && curr->link->link == '\0')
+        if (curr->link->data != val && curr->link->link == '\0')
             printf("Value not found\n");
         else
         {
@@ -113,11 +121,16 @@ void del_value()
 
 void display()
 {
-	curr = head;
-	while(curr !='\0')
+	if (head == '\0')
+		printf("No nodes to display\n");
+	else
 	{
-		printf("%d\n",curr->data);
-		curr=curr->link;
+		curr = head;
+		while(curr !='\0')
+		{
+			printf("%d\n", curr->data);
+			curr = curr->link;
+		}
 	}
 }	 	    
 
@@ -126,9 +139,17 @@ int main()
 	int opt,pos=0;
 	while(1)
 	{
-		printf("\nLinked list menu\n1.Insert at front\n2.Insert at back\n3.Insert at position\n4.Delete at front\n5.Delete at back\n6.Delete value\n7.Display\n8.Exit\n");
-		printf("Enter the option ");
-		scanf("%d",&opt);
+		printf("\nLinked list menu\
+				\n1.Insert at front\
+				\n2.Insert at back\
+				\n3.Insert at position\
+				\n4.Delete at front\
+				\n5.Delete at back\
+				\n6.Delete value\
+				\n7.Display\
+				\n8.Exit\n");
+		printf("Enter the option : ");
+		scanf("%d", &opt);
 		switch(opt)
 		{
 			case 1:
@@ -138,11 +159,11 @@ int main()
 				insert_back();
 				break;
 			case 3:
-			    printf("\nEnter a Position ");
-			    scanf("%d",&pos);
+			    printf("Enter a Position : ");
+			    scanf("%d", &pos);
 			    if(pos == n+1)
 			        insert_back();
-			    else if(pos==1)
+			    else if(pos == 1)
 			        insert_front();
 			    else if (pos<1 || pos>n+1)
 			        printf("Enter valid Position\n");

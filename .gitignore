@@ -7,3 +7,5 @@ CircularQueue.exe
 CircularQueue.o
 PriorityQueue.exe
 PriorityQueue.o
+LinkedList.exe
+LinkedList.o
