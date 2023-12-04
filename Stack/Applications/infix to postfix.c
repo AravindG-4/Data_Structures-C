@@ -3,11 +3,12 @@
 #include <conio.h>
 #include <string.h>
 char stack[10];
+int size = 10;
 int top=-1;
 
 int is_full()
 {
-    if(top==4)
+    if(top==(size-1))
         return 1;
     else
         return 0;
