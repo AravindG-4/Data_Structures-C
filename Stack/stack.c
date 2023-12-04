@@ -1,10 +1,11 @@
 #include <stdio.h>
 int stack[5];
+int size = 5;
 int top = -1;
 
 int is_full()
 {
-    if(top==4)
+    if(top==(size-1))
         return 1;
     else
         return 0;
