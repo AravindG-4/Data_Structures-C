@@ -69,11 +69,9 @@ int main() {
                 break;
             case 3:
                 printf("Exiting program\n");
-                break;
+                return 0;
             default:
                 printf("Invalid choice\n");
         }
-    } while (choice != 3);
-
-    return 0;
+    }
 }

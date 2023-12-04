@@ -9,3 +9,5 @@ PriorityQueue.exe
 PriorityQueue.o
 LinkedList.exe
 LinkedList.o
+Stack/Applications/posteval.exe
+Stack/Applications/posteval.o
