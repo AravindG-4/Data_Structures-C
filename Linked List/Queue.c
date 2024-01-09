@@ -67,7 +67,8 @@ int main()
     int n;
     while(1)
     {
-        printf("\n1.Enqueue\n");
+        printf("\nQueue Menu :\n");
+        printf("1.Enqueue\n");
         printf("2.Dequeue\n");
         printf("3.Display\n");
         printf("4.Exit\n");

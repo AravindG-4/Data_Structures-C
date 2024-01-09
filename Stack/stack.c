@@ -40,7 +40,7 @@ void pop(){
 }
 
 void peek()
-{   if(is_empty)
+{   if(is_empty())
         printf("Array is empty\n");
     else
         printf("%d\n",stack[top]);

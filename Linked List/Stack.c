@@ -70,7 +70,8 @@ int main()
     int n;
     while(1)
     {
-        printf("\n1.Push\n");
+        printf("\nStack Menu :\n");
+        printf("1.Push\n");
         printf("2.Pop\n");
         printf("3.Peek\n");
         printf("4.Display\n");

@@ -92,7 +92,7 @@ void delete_back()
 void display()
 {
     if(head == NULL)
-        printf("Empty\n");
+        printf("Empty");
     else
     {
         current = head;
@@ -102,6 +102,7 @@ void display()
             current = current->next;
         }
     }
+    printf("\n");
 }
 
 int main()
@@ -110,6 +111,7 @@ int main()
     int n;
     while(1)
     {
+        printf("\nDouble Linked List Menu :");
         printf("\n1.Insert front\n");
         printf("2.Delete value\n");
         printf("3.Insert at back\n");

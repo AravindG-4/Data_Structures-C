@@ -84,7 +84,7 @@ struct bsnode *deletion(struct bsnode *root, int val) {
   return root;
 }
 
-void search(struct bsnode *root,int val)
+struct bsnode * search(struct bsnode *root,int val)
 {
     if(root != '\0')
     {
@@ -92,9 +92,10 @@ void search(struct bsnode *root,int val)
             search(root->rc,val);
         else if(root->data > val)
             search(root->lc,val);
-        else
+        else {
             printf("Found\n");
-
+            return root;
+        }
     }
     else
         printf("Not found\n");

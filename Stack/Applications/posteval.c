@@ -47,7 +47,7 @@ int evaluatePostfix(char arr[]) {
 }
 
 int main() {
-    char arr[MAX_SIZE];
+    char arr[MAX_SIZE] = {NULL};
     int choice, result;
 
     while(1) {
@@ -64,9 +64,14 @@ int main() {
                 scanf("%s",arr);
                 break;
             case 2:
-                result = evaluatePostfix(arr);
-                printf("Result: %d\n", result);
-                break;
+                if(arr[0]!='\0') {
+                    result = evaluatePostfix(arr);
+                    printf("Result: %d\n", result);
+                    break;
+                }
+                else
+                    printf("No expression given\n");
+                    break;
             case 3:
                 printf("Exiting program\n");
                 return 0;
