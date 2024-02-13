@@ -1,62 +1,69 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct KeyValuePair {
-    int key;
+// Define a structure for a value and a link to the next element in the chain
+struct ValueNode {
     int value;
-    struct KeyValuePair* next;
+    struct ValueNode* next; // Pointer to the next element in the chain
 };
 
-#define TABLE_SIZE 10
-struct KeyValuePair* hashTable[TABLE_SIZE];
+// Define the hash table
+#define TABLE_SIZE 7
+struct ValueNode* hashTable[TABLE_SIZE];
 
-int hash(int key) {
-    return key % TABLE_SIZE;
+// Hash function
+int hash(int value) {
+    return value % TABLE_SIZE;
 }
 
-void insert(int key, int value) {
-    int index = hash(key);
+// Function to insert a value into the hash table
+void insert(int value) {
+    int index = hash(value);
 
-    struct KeyValuePair* newPair = (struct KeyValuePair*)malloc(sizeof(struct KeyValuePair));
-    newPair->key = key;
-    newPair->value = value;
-    newPair->next = NULL;
+    // Create a new value node
+    struct ValueNode* newValueNode = (struct ValueNode*)malloc(sizeof(struct ValueNode));
+    newValueNode->value = value;
+    newValueNode->next = NULL;
 
+    // If the index is not yet occupied, insert the new node
     if (hashTable[index] == NULL) {
-        hashTable[index] = newPair;
+        hashTable[index] = newValueNode;
     } else {
-        newPair->next = hashTable[index];
-        hashTable[index] = newPair;
+        // If the index is already occupied, add the new node to the beginning of the chain
+        newValueNode->next = hashTable[index];
+        hashTable[index] = newValueNode;
     }
 }
 
-int get(int key) {
-    int index = hash(key);
-    struct KeyValuePair* current = hashTable[index];
-
-    while (current != NULL) {
-        if (current->key == key) {
-            return current->value;
+// Function to print the hash table with separate chaining
+void printHashTable() {
+    printf("Hash Table with Separate Chaining:\n");
+    for (int i = 0; i < TABLE_SIZE; ++i) {
+        struct ValueNode* current = hashTable[i];
+        printf("Index %d: ", i);
+        while (current != NULL) {
+            printf("%d ", current->value);
+            current = current->next;
         }
-        current = current->next;
+        printf("\n");
     }
-
-    return -1; 
 }
 
 int main() {
-    insert(5, 42);
-    insert(10, 99);
-    insert(15, 7);
+    // Example usage
+    insert(42);
+    insert(99);
+    insert(7);
+    insert(14);
 
-    printf("Value for key 5: %d\n", get(5));
-    printf("Value for key 10: %d\n", get(10));
-    printf("Value for key 15: %d\n", get(15));
+    // Print the entire hash table with separate chaining
+    printHashTable();
 
+    // Clean up: Free allocated memory
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        struct KeyValuePair* current = hashTable[i];
+        struct ValueNode* current = hashTable[i];
         while (current != NULL) {
-            struct KeyValuePair* next = current->next;
+            struct ValueNode* next = current->next;
             free(current);
             current = next;
         }
